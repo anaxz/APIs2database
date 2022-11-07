@@ -1,4 +1,4 @@
-const { resolve } = require('path')
+// const { resolve } = require('path')
 const db = require ('../dbConfig')
 
 // example of what it would look like as object
@@ -13,12 +13,20 @@ class Cat {
         this.id = data.id
         this.name = data.name
         this.age = data.age
+        this.owners_name = data.owners_name
     }
 
     static get all() {
         return new Promise (async (resolve, reject) => {
             try {
-                const data = await db.query(`SELECT * FROM cats;`)
+                // const data = await db.query(`SELECT * FROM cats;`)
+                //SELECT cats.id, cats.name, cats.age, cats.owner_id, owners.id, owners.name
+                //FROM cats LEFT JOIN owners ON cats.owner_id = owners.id;
+
+                let data = await db.query(`SELECT cats.*, owners.name as owners_name
+                                        FROM cats
+                                        LEFT JOIN owners ON cats.owner_id = owners.id;`);
+
                 // iterate through whole array of data
                 // make a new class object of cat using the data
                 const cats = data.rows.map(d => new Cat(d))
@@ -35,6 +43,7 @@ class Cat {
             try {
                 // $1 would be replaced by the database's 1st col so cat id
                 let data = await db.query(`SELECT * FROM cats WHERE id = $1;`, [ id ]);
+
                 // new class object and get only 1 cat by id
                 let cats = new Cat(data.rows[0]);
                 resolve (cats);
