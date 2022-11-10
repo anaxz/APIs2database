@@ -1,4 +1,3 @@
-// const { resolve } = require('path')
 const db = require ('../dbConfig')
 
 // example of what it would look like as object

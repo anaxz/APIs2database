@@ -22,6 +22,9 @@ Practise repo on docker, connecting apis to databases (using postgres)
 - Fixed join table
 - Refactored code to follow mvc format
 
+### Testing
+- Basic docker test setup -> have not set path in package yet
+
 ### Other
 - Added basic docker setup related files
 - Changed docker setup layout
