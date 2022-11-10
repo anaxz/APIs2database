@@ -8,5 +8,6 @@ INSERT INTO cats (name, age, owner_id)
 VALUES
     ('Snow', 5, null ),
     ('Mochi', 3, 2 ),
-    ('Luppy', 5, null )
+    ('Luppy', 5, null ),
+    ('Coco', 2, 1 );
 
