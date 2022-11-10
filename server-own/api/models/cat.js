@@ -19,10 +19,6 @@ class Cat {
     static get all() {
         return new Promise (async (resolve, reject) => {
             try {
-                // const data = await db.query(`SELECT * FROM cats;`)
-                //SELECT cats.id, cats.name, cats.age, cats.owner_id, owners.id, owners.name
-                //FROM cats LEFT JOIN owners ON cats.owner_id = owners.id;
-
                 let data = await db.query(`SELECT cats.*, owners.name as owners_name
                                         FROM cats
                                         LEFT JOIN owners ON cats.owner_id = owners.id;`);
@@ -94,7 +90,7 @@ class Cat {
     destroy(){
         return new Promise(async(resolve, reject) => {
             try {
-                //delete a cat by its id hence using this refers to class itself
+                //delete a cat by its id hence using this refers to a class object itself
                 await db.query(`DELETE FROM cats WHERE id = $1;`, [ this.id ]);
                 resolve('Cat was deleted')
             } catch (err) {

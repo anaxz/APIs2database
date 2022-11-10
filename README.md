@@ -3,13 +3,14 @@ Practise repo on docker, connecting apis to databases (using postgres)
 
 ## Installation
 - Clone or download the repo
+
+## Usage
 - Open terminal and navigate to the repo folder 
 - Type `bash _scripts/startDev.sh` to start development
 - Type `bash _scripts/stop.sh` to stop
 - Type `bash _scripts/teardown.sh` to stop & remove volume
-
-Goto http://localhost:8080/ to see website. 
-Goto http://localhost:3000/ for server. 
+- Goto http://localhost:8080/ to see website. 
+- Goto http://localhost:3000/ for server. 
 
 ## Changelogs
 ### Client
@@ -17,11 +18,13 @@ Goto http://localhost:3000/ for server.
 
 ### API
 - Add basic database setup
-- Fixed postgres configuration 
+- Fixed postgres configuration
+- Fixed join table
 
 ### Other
 - Added basic docker setup related files
 - Changed docker setup layout
+- Docker loading database correctly
 
 ## Wins & Challenges
 
@@ -29,7 +32,8 @@ Goto http://localhost:3000/ for server.
 ### Client
 
 ### API
-- database may not be seeding properly after changing docker layout
 
 #### Note to self:
 - Connect client index to api but use own one
+- change to mvc format
+- testing branch

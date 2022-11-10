@@ -13,4 +13,4 @@ services:
     environment: 
       - POSTGRES_USER=anaxz
     volumes:
-      - "./db/migrations:/docker-entrypoint-initdb.d/:ro"
+      - "./db:/docker-entrypoint-initdb.d/:ro"
