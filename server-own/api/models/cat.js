@@ -71,7 +71,7 @@ class Cat {
         return new Promise (async (resolve, reject) => {
             try {
                 let data = await db.query(`INSERT INTO cats (name, age) VALUES ($1, $2) RETURNING *;`, [ name, age ]);
-                let cat = new Dog(data.rows[0]);
+                let cat = new Cat(data.rows[0]);
                 resolve (cat);
             } catch (err) {
                 reject('Error creating cat');
