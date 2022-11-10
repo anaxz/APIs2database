@@ -36,4 +36,3 @@ Practise repo on docker, connecting apis to databases (using postgres)
 #### Note to self:
 - Connect client index to api but use own one
 - change to mvc format
-- testing branch
