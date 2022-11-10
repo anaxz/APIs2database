@@ -20,6 +20,7 @@ Practise repo on docker, connecting apis to databases (using postgres)
 - Add basic database setup
 - Fixed postgres configuration
 - Fixed join table
+- Refactored code to follow mvc format
 
 ### Other
 - Added basic docker setup related files
@@ -35,4 +36,3 @@ Practise repo on docker, connecting apis to databases (using postgres)
 
 #### Note to self:
 - Connect client index to api but use own one
-- change to mvc format

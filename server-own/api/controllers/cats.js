@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-// class
 const Cat = require('../models/cat')
 
-router.get('/', async (req, res) => {
+const showAll = async (req, res) => {
     try {
         // fecth data from class cat method all()
         const cats = await Cat.all
@@ -14,36 +13,27 @@ router.get('/', async (req, res) => {
     } catch(err) {
         res.status(500).json({err})
     }
-})
+}
 
-router.get('/:id', async (req, res) => {
+const showOne = async (req, res) => {
     try {
         const cat = await Cat.findById( parseInt(req.params.id) )
         res.json(cat)
     } catch(err){
         res.status(404).json({err})
     }
-})
+}
 
-// router.get('/allNames', async (req, res) => {
-//     try{
-//         const names = await Cat.getAllName()
-//         res.json(names)
-//     } catch(err){
-//         res.status(404).json({err})
-//     }
-// })
-
-router.post('/', async (req, res) => {
+const create = async (req, res) => {
     try {
         const cat = await Cat.create(req.body.name, req.body.age)
         res.json(cat)
     } catch(err) {
         res.status(404).json({err})
     }
-})
+}
 
-router.patch('/:id', async (req, res) => {
+const update = async (req, res) => {
     try {
         const cat = await Cat.findById(parseInt(req.params.id))
         const updatedCat = await cat.update(req.body.name, req.body.age)
@@ -51,9 +41,9 @@ router.patch('/:id', async (req, res) => {
     } catch(err) {
         res.status(500).json({err})
     }
-})
+}
 
-router.delete('/:id', async(req, res) => {
+const destroy = async (req, res) => {
     try {
         // get the cat first by id then destroy
         const cat = await Cat.findById(parseInt(req.params.id))
@@ -62,8 +52,6 @@ router.delete('/:id', async(req, res) => {
     } catch(err){
         res.status(500).json({err})
     }
-})
+}
 
-
-
-module.exports = router;
+module.exports = { showAll, showOne, create, update, destroy };
