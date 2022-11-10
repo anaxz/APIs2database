@@ -5,8 +5,8 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-const catRoutes = require('./controllers/cats')
-const ownerRoutes = require('./controllers/owners')
+const catRoutes = require('./routes/cats')
+const ownerRoutes = require('./routes/owners')
 
 // actual file path of api, name the route with whatever
 // so the root of your website is at localhost:portNo/cats

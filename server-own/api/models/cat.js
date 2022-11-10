@@ -26,7 +26,7 @@ class Cat {
                 // make a new class object of cat using the data
                 const cats = data.rows.map(d => new Cat(d))
                 //"resolves" a given value to a Promise - returns promise as a value of all cats
-                resolve(cats);
+                resolve({cats});
             } catch (err) {
                 reject("Error retrieving cats")
             }
@@ -41,26 +41,12 @@ class Cat {
 
                 // new class object and get only 1 cat by id
                 let cats = new Cat(data.rows[0]);
-                resolve (cats);
+                resolve({cats});
             } catch (err) {
                 reject('Cat not found');
             }
         });
     }
-
-    // static getAllName () {
-    //     return new Promise(async (resolve, reject) => {
-    //         try {
-    //             const data = await db.query(`SELECT name FROM cats;`)
-    //             // const cats = data.rows.map(d => new Cat(d))
-    //             // const names = data.rows.map(d => d.name)
-    //             const names = data.rows[0]
-    //             resolve({names});
-    //         } catch(err){
-    //             reject("Error retrieving cats")
-    //         }
-    //     })
-    // }
 
     static create(name, age){
         return new Promise (async (resolve, reject) => {
